@@ -18,11 +18,10 @@ font pango:Droid Sans Mono 8
 ### THEME ###
 
 # class                 border  backgr. text    indicator
-client.focused          #CF2020 #777777 #222222 #555555
-client.focused_inactive #aaaaaa #aaaaaa #000000 #484e50
-client.unfocused        #333333 #666666 #aaaaaa #292d2e
-client.urgent           #FDF801 #b00000 #FDF801 #900000
-
+client.focused          #0088CC #0088CC #ffffff #dddddd
+client.focused_inactive #333333 #333333 #888888 #292d2e
+client.unfocused        #333333 #333333 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
 
 ### Borders ###
 new_window pixel 4
@@ -43,7 +42,7 @@ floating_modifier $mod
 #3 Atalhos
  
 #Urxvt
-bindsym $mod+Return exec urxvt -T /bin/zsh
+bindsym $mod+Return exec xterm
 
 #Aumentar e diminuir o volume
 bindsym Mod1+Up exec --no-startup-id amixer -q set 'Master' 5%+
@@ -67,8 +66,10 @@ bindsym Mod1+shift+a exec --no-startup-id firefox
 #exec --no-startup-id sh ~/.i3/wallpaper.sh 
 exec --no-startup-id numlockx on
 exec --no-startup-id compton -b --conf ~/.i3/compton
-exec --no-startup-id  feh --bg-scale Wallpaper/agua.jpg
-exec --no-startup-id conky -c ~/conkyrc0  
+exec --no-startup-id  feh --bg-scale Wallpaper/landscapes-dark-houses-bridges-fantasy-art-artwork-waterfalls-high-resolution.jpg
+
+
+exec --no-startup-id conky -c ~/conky/conkyrc0  
 
 ##======================================================================================
 ##======================================================================================
@@ -274,21 +275,23 @@ bindsym $mod+r mode "resize"
  
 
 bar {
-  status_command  i3status 
+  status_command i3blocks  -c /home/thiago/.i3blocks.conf   
   position top
 mode dock
 workspace_buttons yes
 binding_mode_indicator yes
-font pango: FontAwesome 8
+font pango: Source Code Pro for Powerline  8
   colors {
-    separator #FFBC0A
-    background #161616
-    statusline #605c5a
- # class 						border     	backgrd 	text
-            focused_workspace  #161616  	#C74C1C  	#ffffff
-            active_workspace   #161616  	#161616  	#a5a5a5
-            inactive_workspace #161616  	#545454  	#a5a5a5
-            urgent_workspace   #161616  	#545454  	#a5a5a5
+                background #222222
+		statusline #dddddd
+		separator #666666
+
+ # class 		  border    backgrd    text
+                focused_workspace  #0088cc #0088cc #ffffff
+		active_workspace   #333333 #333333 #888888
+		inactive_workspace #333333 #333333 #888888
+		urgent_workspace   #2f343a #900000 #ffffff
+
     }
 }
 ##======================================================================================
