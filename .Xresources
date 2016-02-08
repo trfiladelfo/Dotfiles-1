@@ -1,0 +1,59 @@
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+
+XTerm*fontMenu*fontdefault*Label: Default
+XTerm*visualbell: true
+XTerm*xftAntialias: 1
+XTerm*cjkWidth: 0
+XTerm*scrollBar: 0
+XTerm*bellIsUrgent: 1
+XTerm*locale: 1
+XTerm.utf8: 1
+XTerm*utf8Title: 1
+XTerm*pointerColor: white
+XTerm*pointerColorBackground: black
+XTerm*cursorColor: yellow
+XTerm*cursorBlink: true
+xterm*faceName:  xft:Inconsolata\ for\ Powerline
+xterm*faceSize:  9
+xterm*loginShell: true
+xterm*vt100*geometry: 87x24
+xterm*termName: xterm-256color
+xterm*saveLines: 9000
+xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
+xterm*eightBitInput: false
+Xterm*borderWidth: 0
+
+*VT100*translations: #override Shift <Btn1Up>: exec-formatted("firefox '%t'", PRIMARY)
+XTerm*on3Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
+
+*background:       #170F0D
+*foreground:       #746C48
+
+
+*color0:           #343436
+*color8:           #3C4537
+
+*color1:           #473C37
+*color9:           #544639
+
+*color2:           #6A6E39
+*color10:          #6C9242
+
+*color3:           #6D533A
+*color11:          #735E45
+
+*color4:           #8F6F4A
+*color12:          #99663A
+
+*color5:           #A0883A
+*color13:          #A97749
+
+*color6:           #AD8F62
+*color14:          #C47B40
+
+*color7:           #CD9561
+*color15:          #CFBDA4
