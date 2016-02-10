@@ -1,21 +1,17 @@
 ##======================================================================================
 ##======================================================================================
-# i3 config file (v4)
  
 set $mod Mod4
  
 ##======================================================================================
 ##======================================================================================
-#Fonte 
+#Font 
 
 font pango:Droid Sans Mono 8
- 
- 
+  
 ##======================================================================================
 ##======================================================================================
-#Temas
-
-### THEME ###
+### Theme ###
 
 # class                 border  backgr. text    indicator
 client.focused          #0088CC #0088CC #ffffff #dddddd
@@ -39,20 +35,22 @@ floating_modifier $mod
 ##======================================================================================
 ##======================================================================================
  
-#3 Atalhos
+#i3 Shortcut
  
-#Urxvt
-bindsym $mod+Return exec xterm
+#Xterm+tmux
+bindsym $mod+Return exec  xterm 
 
 #Aumentar e diminuir o volume
 bindsym Mod1+Up exec --no-startup-id amixer -q set 'Master' 5%+
 bindsym Mod1+Down exec --no-startup-id amixer -q set 'Master' 5%-
 #Ncmpcpp
-bindsym Mod1+shift+n exec --no-startup-id urxvt -name ncmpcpp -e ncmpcpp -s playlist 
+bindsym Mod1+shift+n exec --no-startup-id xterm -name xterm -e ncmpcpp -s playlist 
 #Ranger
-bindsym Mod1+shift+f exec --no-startup-id urxvt -name ranger -e ranger
+bindsym Mod1+shift+f exec --no-startup-id xterm -name xterm -e ranger
 #Email
-bindsym Mod1+shift+m exec --no-startup-id urxvt -name mutt -e mutt
+bindsym Mod1+shift+m exec --no-startup-id xterm -name xterm -e mutt
+#Irc
+bindsym Mod1+shift+z exec --no-startup-id xterm -name xterm -e weechat
 #Print
 bindsym --release Print exec --no-startup-id scrot %Y-%m-%d-%T.png -e 'mv $f ~/Imagens'
 #firefox
@@ -61,14 +59,12 @@ bindsym Mod1+shift+a exec --no-startup-id firefox
 ##======================================================================================
 ##======================================================================================
  
-## inicio automatico de aplicativos
+## autostart applications
  
-#exec --no-startup-id sh ~/.i3/wallpaper.sh 
+#exec --no-startup-id sh ~/.i3/wallpaper 
 exec --no-startup-id numlockx on
 exec --no-startup-id compton -b --conf ~/.i3/compton
 exec --no-startup-id  feh --bg-scale Wallpaper/landscapes-dark-houses-bridges-fantasy-art-artwork-waterfalls-high-resolution.jpg
-
-
 exec --no-startup-id conky -c ~/conky/conkyrc0  
 
 ##======================================================================================
@@ -89,7 +85,7 @@ bindsym $mod+d exec dmenu_run -b  -fn 'xft:FontAwesome:pixelsize=10' -nb '#19191
 ##======================================================================================
  
  
-# Janelas sem titulos
+# untitled windows
 new_window 1pixel
 new_float 1pixel
  
@@ -183,34 +179,57 @@ bindsym $mod+a focus parent
 ##======================================================================================
  
 # switch to workspace
-bindsym $mod+1 workspace1   
-bindsym $mod+2 workspace2  
-bindsym $mod+3 workspace3  
-bindsym $mod+4 workspace4  
-bindsym $mod+5 workspace5  _
-bindsym $mod+6 workspace6  
-bindsym $mod+7 workspace7   
-bindsym $mod+8 workspace8   
-bindsym $mod+9 workspace9  
-bindsym $mod+0 workspace10 
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS0
 ##======================================================================================
 ##======================================================================================
  
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace1
-bindsym $mod+Shift+2 move container to workspace2
-bindsym $mod+Shift+3 move container to workspace3
-bindsym $mod+Shift+4 move container to workspace4
-bindsym $mod+Shift+5 move container to workspace5
-bindsym $mod+Shift+6 move container to workspace6
-bindsym $mod+Shift+7 move container to workspace7
-bindsym $mod+Shift+8 move container to workspace8
-bindsym $mod+Shift+9 move container to workspace9
-bindsym $mod+Shift+0 move container to workspace10
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS0
  
 ##======================================================================================
 ##======================================================================================
- 
+
+# Assign workspace names  and order
+set $WS1 1:  
+set $WS2 2:
+set $WS3 3:
+set $WS4 4:
+set $WS5 5:_
+set $WS6 6:
+set $WS7 7: 
+set $WS8 8:
+set $WS9 9:
+set $WS0 0:
+
+##======================================================================================
+##======================================================================================
+
+# Assign applications to specific WS
+
+assign [class="XTerm"] $WS1
+assign [class="Firefox"] $WS2
+
+##======================================================================================
+##======================================================================================
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
  
@@ -271,16 +290,16 @@ bindsym $mod+r mode "resize"
  
 ##======================================================================================
 ##======================================================================================
-#Barra 
+#Bar
  
 
 bar {
-  status_command i3blocks  -c /home/thiago/.i3blocks.conf   
+  status_command i3blocks
   position top
 mode dock
 workspace_buttons yes
 binding_mode_indicator yes
-font pango: Source Code Pro for Powerline  8
+font pango:  FontAwesome 8.5
   colors {
                 background #222222
 		statusline #dddddd
