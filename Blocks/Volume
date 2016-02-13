@@ -1,8 +1,0 @@
-#!/bin/env bash
-#amixer -M get Master | grep -E -o '[0-9][0-9]?%' | head -1
-amixer -M get Master | grep -E -o '[0-9][0-9][0-9]%' | head -1
-case $BLOCK_BUTTON in
-	1) amixer sset Master toggle ;;
-	4) amixer -c 0 set Master Front 1dB+ ;;
-	5) amixer -c 0 set Master Front 1dB- ;;
-esac
