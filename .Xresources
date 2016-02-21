@@ -1,35 +1,107 @@
-Xft.dpi:        96
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintslight
+!rofi.width: 100
+!rofi.font: Inconsolata 12
+!rofi.hide-scrollbar: true
+!rofi.location: 1
+!rofi.padding: 2
+!rofi.lines: 10
 
-XTerm*fontMenu*fontdefault*Label: Default
-XTerm*visualbell: true
-XTerm*xftAntialias: 1
-XTerm*cjkWidth: 0
-XTerm*scrollBar: 0
-XTerm*bellIsUrgent: 1
-XTerm*locale: 1
-XTerm*utf8: 1
-XTerm*utf8Title: 1
-XTerm*pointerColor: white
-XTerm*pointerColorBackground: black
-XTerm*cursorColor: yellow
-XTerm*cursorBlink: true
-xterm*faceName:  xft:Inconsolata\ for\ Powerline
-xterm*faceSize:  9
+!rofi.bg: #222
+!rofi.fg: #888
+!rofi.bc: #222
+!rofi.hlbg: #285577
+!rofi.hlfg: #fff
+
+!!----------------------------------------------------------------------------!!
+!! Xft (font) settings
+!!----------------------------------------------------------------------------!!
+
+xft*dpi: 96
+xft*antialias: true
+xft*hinting: full
+xft*rgba: rgb
+xft*autohint: false
+xft*hintstyle: hintslight
+xft*lcdfilter: lcddefault
+
+!!----------------------------------------------------------------------------!!
+!! mouse cursor settings
+!!----------------------------------------------------------------------------!!
+xcursor*theme:              Vanilla-DMZ
+xcursor*size:               22
+
+
+!!----------------------------------------------------------------------------!!
+!! general settings
+!!----------------------------------------------------------------------------!!
+
+xTerm*fontMenu*fontdefault*Label: Regular
+xTerm*reverseVideo: off
+xterm*boldMode: false
+xterm*allowBoldFonts: false
+xterm*fastScroll: true
+xterm*jumpScroll: true
+xterm*multiScroll: true
+xTerm*visualbell: true
+xTerm*xftAntialias: 1
+xTerm*cjkWidth: 0
+xTerm*scrollBar: 0
+xTerm*bellIsUrgent: 1
+xTerm*locale: 1
+xTerm*utf8: 1
+xTerm*utf8Title: 1
+xterm*metaSendsEscape: false
+xTerm*pointerColor: white
+xTerm*pointerColorBackground: black
+xTerm*cursorColor: yellow
+xTerm*cursorBlink: true
+xterm*faceName: Terminess Powerline 
+xterm*faceSize:  8,0
 xterm*loginShell: true
-xterm*vt100*geometry: 87x24
+xterm*vt100*geometry: 79x25
 xterm*termName: xterm-256color
-xterm*saveLines: 9000
+xterm*saveLines: 4096
 xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
 xterm*eightBitInput: false
-Xterm*borderWidth: 0
-XTerm*selectToClipboard: true
+xterm*borderWidth: 0
+xTerm*dynamicColors: true
+xTerm*selectToClipboard: true
 
 VT100*translations: #override Shift <Btn1Up>: exec-formatted("firefox '%t'", PRIMARY)
 XTerm*on3Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
+
+XTerm*vt100.translations: #override \
+Shift Ctrl <KeyPress> C:  copy-selection(CLIPBOARD,CUT_BUFFER0) \n\
+Shift Ctrl <KeyPress> V:  insert-selection(CLIPBOARD,CUT_BUFFER0)
+
+
+urxvt*font: xft:Terminus:style=Medium:pixelsize=11,xft:Inconsolata\ for\ Powerline:pixelsize=11
+urxvt*scrollBar: false
+
+URxvt*perl-ext-common : default,matcher,tabbed
+URxvt*urlLauncher     : firefox
+URxvt*matcher.button  : 1
+URxvt*tabbed.tabbar-fg : 5
+URxvt*tabbed.tabbar-bg : 0
+URxvt*tabbed.tab-fg : 14
+URxvt*tabbed.tab-bg : 0
+
+URxvt*geometry: 76x23
+URxvt*fading:               0
+URxvt*loginShell:           true
+URxvt*saveLines:            50
+URxvt*internalBorder:       3
+URxvt*lineSpace:            
+URxvt*pointerBlank: true
+
+URxvt*cursorBlink:          true
+URxvt*cursorColor:          #657b83
+URxvt*cursorUnderline:      false
+
+
+
+!!----------------------------------------------------------------------------!!
+!! colors
+!!----------------------------------------------------------------------------!!
 
 #define base00 #1d1f21
 #define base01 #282a2e
@@ -48,34 +120,32 @@ XTerm*on3Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]]
 #define base0E #b294bb
 #define base0F #a3685a
 
-*.foreground:   base05
-*.background:   base00
-
-*.color0:       base00
-*.color1:       base08
-*.color2:       base0B
-*.color3:       base0A
-*.color4:       base0D
-*.color5:       base0E
-*.color6:       base0C
-*.color7:       base05
-
-*.color8:       base03
-*.color9:       base08
-*.color10:      base0B
-*.color11:      base0A
-*.color12:      base0D
-*.color13:      base0E
-*.color14:      base0C
-*.color15:      base07
-
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
-*.color16:      base09
-*.color17:      base0F
-*.color18:      base01
-*.color19:      base02
-*.color20:      base04
-*.color21:      base06
-
+*foreground:   base05
+*background:   base00
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+*color8:       base03
+*color9:       base08
+*color10:      base0B
+*color11:      base0A
+*color12:      base0D
+*color13:      base0E
+*color14:      base0C
+*color15:      base07
+!!----------------------------------------------------------------------------!!
+!!Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+!! use 'shell' template to set these if necessary
+!!----------------------------------------------------------------------------!!
+*color16:      base09
+*color17:      base0F
+*color18:      base01
+*color19:      base02
+*color20:      base04
+*color21:      base06
 
